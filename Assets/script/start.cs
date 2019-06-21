@@ -4,26 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+
+
 public class start : MonoBehaviour
 {
-    public GameObject gemane;
-    public GameObject koukyusya;
-    public GameObject[] sentaku1;
-    public GameObject[] sentaku2;
-    public GameObject[] sentaku3;
-    int deyi = 0;
-    public GameObject deytext;
-    public GameObject stfa;
-    int a = 1;
-    float fadeSpeed = 0.013f;
+    public GameObject gemane;   //ゲームマネージャー
+    public GameObject koukyusya;    //黒塗りの高級板
+    public GameObject[] sentaku1;   //左端のカード
+    public GameObject[] sentaku2;   //真ん中のカード
+    public GameObject[] sentaku3;   //右端のカード
+
+    int deyi = 9;   //現在の日付
+    public TextMeshProUGUI day; //日付のテキスト
+
+    float fadeSpeed = 0.013f;   //フェードスピード
     float fadeSpeed1 = 0.018f;
-    public TextMeshProUGUI day;
-    float red, green, blue, alfa;
-    float red1, green1, blue1, alfa1;
-    public Image fadeImage;
-    public bool isFadeOut = false;  //フェードアウト処理の開始、完了を管理するフラグ
-    public bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
-    int endf;
+
+    float red, green, blue, alfa;   //黒背景の色の保持
+    float red1, green1, blue1, alfa1;   //日付の色の保持
+
+    public GameObject stfa; //日付の黒いパネル
+    public Image fadeImage; 
+
+    int endf = 0;
     public static int keltuka1;
     public static int keltuka2;
     public static int keltuka3;
@@ -31,11 +34,14 @@ public class start : MonoBehaviour
     int endret;
     int syuryou = 0;
     int uramodo;
+
+
+
     void Start()
     {
         endret = GAMESTART.getHitPoint();
         uramodo = GAMESTART.Ura2();
-        Startfro();
+
         red = fadeImage.color.r;
         green = fadeImage.color.g;
         blue = fadeImage.color.b;
@@ -45,47 +51,59 @@ public class start : MonoBehaviour
         green1 = day.color.g;
         blue1 = day.color.b;
         alfa1 = day.color.a;
+
+        Startfro();
     }
-    void Update()
+
+    IEnumerator fadein()
     {
-        if (a == 1)
+        while (StartFadeIn())
         {
-            StartFadeOut();
-        }
-        else if (a == 0)
-        {
-            StartFadeIn();
+            yield return null;
         }
     }
 
-    void StartFadeIn()
+
+
+    bool StartFadeIn()
     {
 
         alfa1 -= fadeSpeed1;
-        alfa -= fadeSpeed1;                //a)不透明度を徐々に下げる
-        SetAlpha();                      //b)変更した不透明度パネルに反映する
+        alfa -= fadeSpeed1;
+        SetAlpha();
         if (alfa <= 0)
-        {                    //c)完全に透明になったら処理を抜ける
-            isFadeIn = false;
-            fadeImage.enabled = false;    //d)パネルの表示をオフにする
+        {
+            fadeImage.enabled = false;
             stfa.SetActive(false);
-            a = 3;
             BGM.Play(2);
+            return false;
+        }
+        return true;
+    }
+
+
+
+    IEnumerator fadeout()
+    {
+        while (StartFadeOut())
+        {
+            yield return null;
         }
     }
 
-    void StartFadeOut()
+
+
+    bool StartFadeOut()
     {
-        fadeImage.enabled = true;  // a)パネルの表示をオンにする
+        fadeImage.enabled = true;
         alfa += fadeSpeed;
-        alfa1 += fadeSpeed;  // b)不透明度を徐々にあげる
-        SetAlpha();               // c)変更した透明度をパネルに反映する
+        alfa1 += fadeSpeed;
+        SetAlpha();
         if (alfa >= 1)
-        {             // d)完全に不透明になったら処理を抜ける
+        {
             gemane.GetComponent<parameter>().mainaus();
             gemane.GetComponent<parameter>().iro();
             koukyusya.SetActive(false);
-            isFadeOut = false;
             gemane.GetComponent<parameter>().iro();
             gemane.GetComponent<ibent>().riset();
             keltuka1 = UnityEngine.Random.Range(0, 15);
@@ -98,27 +116,40 @@ public class start : MonoBehaviour
             SE.play(1);
             if (endf == 0)
             {
-                a = 0;
-            }else if(endf == 1)
+                StartCoroutine(fadein());
+            }
+            else if(endf == 1)
             {
                 endButton.SetActive(true);
+                Startfro();
             }
+            return false;
         }
+        return true;
     }
+
+
+
     public void end()
     {
         sentaku1[keltuka1].SetActive(false);
         sentaku2[keltuka2].SetActive(false);
         sentaku3[keltuka3].SetActive(false);
     }
+
+
+
     void SetAlpha()
     {
         fadeImage.color = new Color(red, green, blue, alfa);
         day.color = new Color(red1, green1, blue1, alfa1);
     }
+
+
+
     public void Startfro()
     {
-        a = 1;
+        StartCoroutine(fadeout());
         stfa.SetActive(true);
         if (endret == 0)
         {
@@ -139,13 +170,20 @@ public class start : MonoBehaviour
             day.GetComponentInChildren<TextMeshProUGUI>().text = deyi + "日目";
         }
     }
+
+
+
+
     public void gamuovr()
     {
-        a = 1;
+        StartCoroutine(fadeout());
         endf = 1;
         stfa.SetActive(true);
         day.GetComponentInChildren<TextMeshProUGUI>().text = "-GAME OVER-";
     }
+
+
+
     public void endgame()
     {
         if (uramodo == 0) {
@@ -170,4 +208,3 @@ public class start : MonoBehaviour
         }
     }
 }
-    

@@ -232,8 +232,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 402, y: -257.4}
-  m_SizeDelta: {x: 223.8, y: 124.7}
+  m_AnchoredPosition: {x: 395.93, y: -218.61}
+  m_SizeDelta: {x: 374.29, y: 202.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &80224974
 GameObject:
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 80224975}
   - component: {fileID: 80224976}
   m_Layer: 0
-  m_Name: cab21b7e749bf19c9843054d14774322 (2)
+  m_Name: moyamoya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 91294078}
   - component: {fileID: 91294077}
   m_Layer: 0
-  m_Name: TextMeshPro Text (1)
+  m_Name: endlessText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 151897711}
   - component: {fileID: 151897710}
   m_Layer: 0
-  m_Name: TextMeshPro Text
+  m_Name: normalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,7 +651,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1467127758}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 311107804}
   - component: {fileID: 311107803}
   m_Layer: 0
-  m_Name: TextMeshPro Text (2)
+  m_Name: setumeiText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 627470787}
   - component: {fileID: 627470788}
   m_Layer: 0
-  m_Name: d181c602d403893d30567b66e56fab07 (1)
+  m_Name: yajirusiL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 854599528}
   - component: {fileID: 854599527}
   m_Layer: 0
-  m_Name: 0f1a82e32b1b8f1f3dbe889f219e6ead
+  m_Name: kambamnormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1358,12 +1358,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 854599526}
   m_LocalRotation: {x: -0, y: -0, z: 0.0908265, w: -0.9958667}
-  m_LocalPosition: {x: 6.02, y: -36.13, z: 0}
+  m_LocalPosition: {x: -633.98, y: -396.13, z: 0}
   m_LocalScale: {x: 0.6905011, y: 0.6905011, z: 0.690501}
   m_Children:
   - {fileID: 1478383009}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1467127758}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.422001}
 --- !u!1 &991946312
 GameObject:
@@ -1433,12 +1433,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991946312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27999976, y: -39.179996, z: 980}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -639.72, y: -399.18, z: 980}
   m_LocalScale: {x: 3.7265089, y: 3.7265089, z: 3.7265089}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1467127758}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070062226
 GameObject:
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 1070062227}
   - component: {fileID: 1070062228}
   m_Layer: 0
-  m_Name: 0f1a82e32b1b8f1f3dbe889f219e6ead (2)
+  m_Name: setumei
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 1077234511}
   - component: {fileID: 1077234512}
   m_Layer: 0
-  m_Name: d181c602d403893d30567b66e56fab07
+  m_Name: yajirusiR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1665,7 +1665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113091550
 GameObject:
@@ -2344,8 +2344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a4f5445761494db39616f8e49d819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFadeOut: 0
-  isFadeIn: 0
   kuro: {fileID: 1917936693}
   fadeImage: {fileID: 1917936695}
 --- !u!4 &1397196566
@@ -2355,13 +2353,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1397196564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -479.96, y: -299.51, z: 980}
+  m_LocalPosition: {x: 160.04001, y: 60.48999, z: 980}
   m_LocalScale: {x: 3.7265089, y: 3.7265089, z: 3.7265089}
   m_Children:
   - {fileID: 1982148105}
   - {fileID: 1113091551}
-  m_Father: {fileID: 1467127758}
-  m_RootOrder: 12
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1397196567
 MonoBehaviour:
@@ -2382,15 +2380,15 @@ MonoBehaviour:
   fadeImage1: {fileID: 1418562856}
   fadeImage2: {fileID: 80224976}
   fadeImage3: {fileID: 1630955826}
-  yajirusi: {fileID: 1077234512}
-  yajirusi1: {fileID: 627470788}
-  yajirusibotan: {fileID: 23014838}
+  yajirusiL: {fileID: 627470788}
+  yajirusiR: {fileID: 1077234512}
   taitoru1: {fileID: 1403704979}
   taitoru: {fileID: 1403704980}
-  yajirusibotan1: {fileID: 833082245}
-  txst1: {fileID: 151897710}
-  txst2: {fileID: 91294077}
-  txst3: {fileID: 311107803}
+  yajirusibotanR: {fileID: 23014838}
+  yajirusibotanL: {fileID: 833082245}
+  kanbantxst1: {fileID: 151897710}
+  kanbantxst2: {fileID: 91294077}
+  kanbantxst3: {fileID: 311107803}
   serif: {fileID: 490881388}
 --- !u!1 &1403704979
 GameObject:
@@ -2477,7 +2475,7 @@ GameObject:
   - component: {fileID: 1418562855}
   - component: {fileID: 1418562856}
   m_Layer: 0
-  m_Name: cab21b7e749bf19c9843054d14774322
+  m_Name: moyamoya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2618,10 +2616,11 @@ RectTransform:
   - {fileID: 844818488}
   - {fileID: 23014842}
   - {fileID: 833082249}
-  - {fileID: 1397196566}
   - {fileID: 269367447}
+  - {fileID: 854599528}
+  - {fileID: 991946314}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2659,7 +2658,7 @@ GameObject:
   - component: {fileID: 1478383009}
   - component: {fileID: 1478383010}
   m_Layer: 0
-  m_Name: 0f1a82e32b1b8f1f3dbe889f219e6ead (1)
+  m_Name: kanbanendless
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2735,7 +2734,7 @@ GameObject:
   - component: {fileID: 1531699149}
   - component: {fileID: 1531699150}
   m_Layer: 0
-  m_Name: cab21b7e749bf19c9843054d14774322 (1)
+  m_Name: moyamoya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2810,7 +2809,7 @@ GameObject:
   - component: {fileID: 1630955825}
   - component: {fileID: 1630955826}
   m_Layer: 0
-  m_Name: cab21b7e749bf19c9843054d14774322 (3)
+  m_Name: moyamoya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2907,7 +2906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.200012, y: -12.200012}
+  m_AnchoredPosition: {x: -9.200012, y: -12.199951}
   m_SizeDelta: {x: 85.3, y: 91.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917936695
