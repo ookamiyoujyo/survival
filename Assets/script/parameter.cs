@@ -401,9 +401,6 @@ public class parameter : MonoBehaviour {
         }
 
 
-
-
-
         if (para2 > 32)
         {
             sute2.color = new Color(255, 255, 255, 255);
