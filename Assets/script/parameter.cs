@@ -162,7 +162,7 @@ public class parameter : MonoBehaviour {
         para1 = para1 - 5;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -175,7 +175,7 @@ public class parameter : MonoBehaviour {
         para1 = para1 - 10;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -188,7 +188,7 @@ public class parameter : MonoBehaviour {
         para1 = para1 - 30;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -202,7 +202,7 @@ public class parameter : MonoBehaviour {
         para2 = para2 - 5;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -215,7 +215,7 @@ public class parameter : MonoBehaviour {
         para2 = para2 - 10;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -228,7 +228,7 @@ public class parameter : MonoBehaviour {
         para2 = para2 - 30;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -241,7 +241,7 @@ public class parameter : MonoBehaviour {
         para3 = para3 - 5;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -253,7 +253,7 @@ public class parameter : MonoBehaviour {
         para3 = para3 - 10;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -266,7 +266,7 @@ public class parameter : MonoBehaviour {
         para3 = para3 - 30;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -279,7 +279,7 @@ public class parameter : MonoBehaviour {
         para4 = para4 - 5;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -292,7 +292,7 @@ public class parameter : MonoBehaviour {
         para4 = para4 - 10;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -305,7 +305,7 @@ public class parameter : MonoBehaviour {
         para4 = para4 - 30;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -318,7 +318,7 @@ public class parameter : MonoBehaviour {
         para5 = para5 - 5;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -331,7 +331,7 @@ public class parameter : MonoBehaviour {
         para5 = para5 - 10;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -344,7 +344,7 @@ public class parameter : MonoBehaviour {
         para5 = para5 - 30;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {
@@ -360,7 +360,7 @@ public class parameter : MonoBehaviour {
         para5 = para5 - 52;
         if (para1 > 0 && para2 > 0 && para3 > 0 && para4 > 0 && para5 > 0)
         {
-            a.GetComponent<start>().Startfro();
+            a.GetComponent<start>().daystart();
         }
         else
         {

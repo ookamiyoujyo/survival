@@ -14,7 +14,7 @@ public class start : MonoBehaviour
     public GameObject[] sentaku2;   //真ん中のカード
     public GameObject[] sentaku3;   //右端のカード
 
-    int deyi = 9;   //現在の日付
+    int deyi = 0;   //現在の日付
     public TextMeshProUGUI day; //日付のテキスト
 
     float fadeSpeed = 0.013f;   //フェードスピード
@@ -26,23 +26,25 @@ public class start : MonoBehaviour
     public GameObject stfa; //日付の黒いパネル
     public Image fadeImage; 
 
-    int endf = 0;
-    public static int keltuka1;
-    public static int keltuka2;
-    public static int keltuka3;
-    public GameObject endButton;
-    int endret;
-    int syuryou = 0;
-    int uramodo;
+    int endf = 0;   //終了フラグ
+    public static int keltuka1; //左端のランダム数でカード選出用
+    public static int keltuka2; //真ん中のランダム数でカード選出用
+    public static int keltuka3; //右端のランダム数でカード選出用
+
+    public GameObject endButton;    //ゲーム終了ボタン
+
+    int endret; //無限モード判断フラグ
+    int uramodo;    //裏モード判断フラグ
+    int syuryou = 0;    //ランキング呼び出しフラグ
 
 
 
     void Start()
     {
-        endret = GAMESTART.getHitPoint();
-        uramodo = GAMESTART.Ura2();
+        endret = GAMESTART.getHitPoint();   //無限モードフラグの受け取り
+        uramodo = GAMESTART.Ura2(); //裏モードフラグの受け取り
 
-        red = fadeImage.color.r;
+        red = fadeImage.color.r;    //色の取得
         green = fadeImage.color.g;
         blue = fadeImage.color.b;
         alfa = fadeImage.color.a;
@@ -52,7 +54,84 @@ public class start : MonoBehaviour
         blue1 = day.color.b;
         alfa1 = day.color.a;
 
-        Startfro();
+        daystart(); //1日目を始める
+    }
+
+    public void daystart()  //1日の始まりに実行
+    {
+        StartCoroutine(fadeout());  //フェードアウトの実行、及びフェード中の処理
+        if (endret == 0)    //無限モードか判断
+        {
+            if (deyi == 10) //10日目か判断
+            {
+                endf = 1;   //終了フラグを立てる
+                day.GetComponentInChildren<TextMeshProUGUI>().text = "-GAME CLEAR-";    //日付をゲームクリアに変える
+            }
+            else　　//10日前だったら続行
+            {       
+                deyi++; //日付の更新
+                day.GetComponentInChildren<TextMeshProUGUI>().text = deyi + "日目";   //テキストの日付の更新
+            }
+        }
+        else if (endret == 1)   //無限モードだったら
+        {
+            deyi++; //日付の更新
+            day.GetComponentInChildren<TextMeshProUGUI>().text = deyi + "日目";    //テキストの日付の更新
+        }
+    }
+
+
+    IEnumerator fadeout()
+    {
+        stfa.SetActive(true);   //黒いパネルを出す
+        while (StartFadeOut())  //暗転と暗転中の処理をするループ
+        {
+            yield return null;
+        }
+    }
+
+
+
+    bool StartFadeOut()
+    {
+        fadeImage.enabled = true;
+        alfa += fadeSpeed;  //不透明に少しずつする
+        alfa1 += fadeSpeed;
+        SetAlpha(); //色の更新
+        if (alfa >= 1)  //完全に不透明になったら
+        {
+
+
+            gemane.GetComponent<parameter>().mainaus();
+            gemane.GetComponent<parameter>().iro(); //資源が一定以上だったら色をパラメータの変える関数の呼び出し
+
+            koukyusya.SetActive(false);
+
+            gemane.GetComponent<parameter>().iro();
+            gemane.GetComponent<ibent>().riset();
+
+            keltuka1 = UnityEngine.Random.Range(0, 15);
+            keltuka2 = UnityEngine.Random.Range(0, 15);
+            keltuka3 = UnityEngine.Random.Range(0, 15);
+
+            sentaku1[keltuka1].SetActive(true);
+            sentaku2[keltuka2].SetActive(true);
+            sentaku3[keltuka3].SetActive(true);
+
+            BGM.Stop();
+            SE.play(1);
+            if (endf == 0)
+            {
+                StartCoroutine(fadein());
+            }
+            else if(endf == 1)
+            {
+                endButton.SetActive(true);
+                daystart();
+            }
+            return false;
+        }
+        return true;
     }
 
     IEnumerator fadein()
@@ -62,8 +141,6 @@ public class start : MonoBehaviour
             yield return null;
         }
     }
-
-
 
     bool StartFadeIn()
     {
@@ -82,54 +159,6 @@ public class start : MonoBehaviour
     }
 
 
-
-    IEnumerator fadeout()
-    {
-        while (StartFadeOut())
-        {
-            yield return null;
-        }
-    }
-
-
-
-    bool StartFadeOut()
-    {
-        fadeImage.enabled = true;
-        alfa += fadeSpeed;
-        alfa1 += fadeSpeed;
-        SetAlpha();
-        if (alfa >= 1)
-        {
-            gemane.GetComponent<parameter>().mainaus();
-            gemane.GetComponent<parameter>().iro();
-            koukyusya.SetActive(false);
-            gemane.GetComponent<parameter>().iro();
-            gemane.GetComponent<ibent>().riset();
-            keltuka1 = UnityEngine.Random.Range(0, 15);
-            keltuka2 = UnityEngine.Random.Range(0, 15);
-            keltuka3 = UnityEngine.Random.Range(0, 15);
-            sentaku1[keltuka1].SetActive(true);
-            sentaku2[keltuka2].SetActive(true);
-            sentaku3[keltuka3].SetActive(true);
-            BGM.Stop();
-            SE.play(1);
-            if (endf == 0)
-            {
-                StartCoroutine(fadein());
-            }
-            else if(endf == 1)
-            {
-                endButton.SetActive(true);
-                Startfro();
-            }
-            return false;
-        }
-        return true;
-    }
-
-
-
     public void end()
     {
         sentaku1[keltuka1].SetActive(false);
@@ -139,38 +168,11 @@ public class start : MonoBehaviour
 
 
 
-    void SetAlpha()
+    void SetAlpha() //色の更新
     {
         fadeImage.color = new Color(red, green, blue, alfa);
         day.color = new Color(red1, green1, blue1, alfa1);
     }
-
-
-
-    public void Startfro()
-    {
-        StartCoroutine(fadeout());
-        stfa.SetActive(true);
-        if (endret == 0)
-        {
-            if (deyi == 10)
-            {
-                endf = 1;
-                day.GetComponentInChildren<TextMeshProUGUI>().text = "-GAME CLEAR-";
-            }
-            else
-            {
-                deyi++;
-                day.GetComponentInChildren<TextMeshProUGUI>().text = deyi + "日目";
-            }
-        }
-        else if(endret == 1)
-        {
-            deyi++;
-            day.GetComponentInChildren<TextMeshProUGUI>().text = deyi + "日目";
-        }
-    }
-
 
 
 
@@ -184,27 +186,26 @@ public class start : MonoBehaviour
 
 
 
-    public void endgame()
+    public void endgame()   //終了関数、終了ボタンが押されたら呼び出される
     {
-        if (uramodo == 0) {
-            if (endret == 1)
+        if (uramodo == 0) { //裏モードか判断
+            if (endret == 1)　//無限モードか判断
             {
-                if (syuryou == 0)
+                if (syuryou == 0)   //ランキング登録前か判断
                 {
-                    naichilab.RankingLoader.Instance.SendScoreAndShowRanking(deyi);
-                    syuryou = 1;
+                    naichilab.RankingLoader.Instance.SendScoreAndShowRanking(deyi); //ランキングの呼び出し
+                    syuryou = 1;    //ランキング登録完了フラグを立てる
                 } else {
-                    SceneManager.LoadScene("title");
+                    SceneManager.LoadScene("title");    //タイトルシーンの呼び出し
                 }
             }
-
-            else
+            else    //通常モードだったら
             {
-                SceneManager.LoadScene("title");
+                SceneManager.LoadScene("title");    //タイトルシーンの呼び出し
             }
-        }else if (uramodo == 1)
+        }else if (uramodo == 1) //裏モードだったら即タイトル
         {
-            SceneManager.LoadScene("title");
+            SceneManager.LoadScene("title");    //タイトルシーンの呼び出し
         }
     }
 }
