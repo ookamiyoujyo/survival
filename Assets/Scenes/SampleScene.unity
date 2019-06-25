@@ -37906,7 +37906,7 @@ MonoBehaviour:
   sute3: {fileID: 815308728}
   sute4: {fileID: 1010954703}
   sute5: {fileID: 1058854136}
-  a: {fileID: 1934509921}
+  gamemanager: {fileID: 1934509921}
 --- !u!1 &1934851664
 GameObject:
   m_ObjectHideFlags: 0
