@@ -14,9 +14,7 @@ public class sentak : MonoBehaviour
     public TextMeshProUGUI yse;
     public TextMeshProUGUI no;
     public TextMeshProUGUI serif;
-    public bool isFadeOut = false;  //フェードアウト処理の開始、完了を管理するフラグ
-    public bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
-    int a = 3,s = 0;
+    int a = 3,cardNo = 0;
     public static start keltuka1;
     float red, green, blue, alfa;
     float red1, green1, blue1, alfa1;
@@ -26,7 +24,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 1;
+        cardNo = 1;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "あなたは木箱を見つけました\nその中に食べ物を見つけました\nそれを持ち帰ります";
@@ -35,7 +33,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 2;
+        cardNo = 2;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "あなたが育てていた作物が実り\n食べ物を手に入れました";
@@ -44,7 +42,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 3;
+        cardNo = 3;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "ワナを用意しセットしたら\n動物をつかまえました\nこれにより\n大量の干し肉に入手しました";
@@ -53,7 +51,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 4;
+        cardNo = 4;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "水の入ったボトルを見つけました\nボトルを持ち帰りました";
@@ -62,7 +60,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 5;
+        cardNo = 5;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "きれいな池を見つけました\nあなたは水をくんで持ち帰りました";
@@ -71,7 +69,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 6;
+        cardNo = 6;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "雨がふりました\n雨水を集め大量の水を確保しました";
@@ -80,7 +78,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 7;
+        cardNo = 7;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "あなたはイスに座り\n休みました";
@@ -89,7 +87,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 8;
+        cardNo = 8;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "アイマスクを使い\n少しだけ休みました";
@@ -98,7 +96,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 9;
+        cardNo = 9;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "今日あなたはテントに入り\n体を休めました";
@@ -107,7 +105,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 10;
+        cardNo = 10;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "片付けをしきれいにしました\n清潔になり病気になる\nリスクが減りました";
@@ -116,7 +114,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 11;
+        cardNo = 11;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "新しい服を見つけました\n清潔になり病気になる\nリスクが減りました";
@@ -125,7 +123,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 12;
+        cardNo = 12;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "体を洗いました\n清潔になり病気になる\nリスクが減りました";
@@ -134,7 +132,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 13;
+        cardNo = 13;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "音楽を奏でました\nあなたはとても楽しい\n気分になりました";
@@ -144,7 +142,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 14;
+        cardNo = 14;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "創作活動にしてみました\nあなたはとても楽しい\n気分になりました";
@@ -153,7 +151,7 @@ public class sentak : MonoBehaviour
     {
         SE.play(2);
         a = 1;
-        s = 15;
+        cardNo = 15;
         moya.SetActive(true);
         gado.SetActive(true);
         serif.GetComponentInChildren<TextMeshProUGUI>().text = "本を読み過ごしました\nあなたはとても楽しい\n気分になりました";
@@ -202,9 +200,9 @@ public class sentak : MonoBehaviour
     void StartFadeIn()
     {
 
-        alfa -= fadeSpeed;                //a)不透明度を徐々に下げる
+        alfa -= fadeSpeed;
         alfa1 -= fadeSpeed;
-        SetAlpha();                      //b)変更した不透明度パネルに反映する
+        SetAlpha();
         if (alfa <= 0)
         {       
 
@@ -219,10 +217,9 @@ public class sentak : MonoBehaviour
        
         alfa += fadeSpeed;
         alfa1 += fadeSpeed;
-        SetAlpha();               // c)変更した透明度をパネルに反映する
+        SetAlpha();
         if (alfa >= 1)
-        {             // d)完全に不透明になったら処理を抜ける
-            isFadeOut = false;
+        {
             a = 3;
         }
     }
@@ -231,7 +228,7 @@ public class sentak : MonoBehaviour
         moya.SetActive(false);
         gado.SetActive(false);
         a = 0;
-        switch (s)
+        switch (cardNo)
         {
             case 1:
                 gamemane.GetComponent<parameter>().plus1();

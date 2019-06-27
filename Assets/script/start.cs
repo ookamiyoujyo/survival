@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class start : MonoBehaviour
 {
     public GameObject gemane;   //ゲームマネージャー
-    public GameObject koukyusya;    //黒塗りの高級板
+    public GameObject koukyusya;    //最初専用の暗転
     public GameObject[] sentaku1;   //左端のカード
     public GameObject[] sentaku2;   //真ん中のカード
     public GameObject[] sentaku3;   //右端のカード
@@ -81,7 +81,7 @@ public class start : MonoBehaviour
     }
 
 
-    IEnumerator fadeout()
+    IEnumerator fadeout()   //フェードアウトの実行、及びフェード中の処理
     {
         stfa.SetActive(true);   //黒いパネルを出す
         while (StartFadeOut())  //暗転と暗転中の処理をするループ
@@ -95,46 +95,48 @@ public class start : MonoBehaviour
     bool StartFadeOut()
     {
         fadeImage.enabled = true;
-        alfa += fadeSpeed;  //不透明に少しずつする
+        alfa += fadeSpeed;  //不透明にする
         alfa1 += fadeSpeed;
         SetAlpha(); //色の更新
         if (alfa >= 1)  //完全に不透明になったら
         {
+            gemane.GetComponent<parameter>().mainaus(); //数字の反映
+            koukyusya.SetActive(false); //最初専用の暗転を消す
+            gemane.GetComponent<ibent>().riset();   //イベントカードの非表示
 
+            keltuka1 = Random.Range(0, 15); //行動カードの選出
 
-            gemane.GetComponent<parameter>().mainaus();
-            gemane.GetComponent<parameter>().iro(); //資源が一定以上だったら色をパラメータの変える関数の呼び出し
+            keltuka2 = Random.Range(0, 15); //行動カードの選出
+            while (keltuka1 == keltuka2)    //被り防止
+            {
+                keltuka2 = Random.Range(0, 15); //行動カードの再選出
+            }
+            keltuka3 = Random.Range(0, 15); //行動カードの選出
+            while (keltuka1 == keltuka3 || keltuka2 == keltuka3)    //被り防止
+            {
+                keltuka3 = Random.Range(0, 15); //行動カードの再選出
+            }
 
-            koukyusya.SetActive(false);
-
-            gemane.GetComponent<parameter>().iro();
-            gemane.GetComponent<ibent>().riset();
-
-            keltuka1 = UnityEngine.Random.Range(0, 15);
-            keltuka2 = UnityEngine.Random.Range(0, 15);
-            keltuka3 = UnityEngine.Random.Range(0, 15);
-
-            sentaku1[keltuka1].SetActive(true);
+            sentaku1[keltuka1].SetActive(true); //カードの表示
             sentaku2[keltuka2].SetActive(true);
             sentaku3[keltuka3].SetActive(true);
 
-            BGM.Stop();
-            SE.play(1);
-            if (endf == 0)
+            BGM.Stop(); //BGMを止める
+            SE.play(1); //開始音を鳴らす
+            if (endf == 0)  //終了フラグの確認
             {
-                StartCoroutine(fadein());
+                StartCoroutine(fadein());   //操作可能にするコルーチン
             }
             else if(endf == 1)
             {
-                endButton.SetActive(true);
-                daystart();
+                endButton.SetActive(true);  //タイトル行く終了ボタンの表示
             }
             return false;
         }
         return true;
     }
 
-    IEnumerator fadein()
+    IEnumerator fadein()   //操作可能にするコルーチン
     {
         while (StartFadeIn())
         {
@@ -145,14 +147,13 @@ public class start : MonoBehaviour
     bool StartFadeIn()
     {
 
-        alfa1 -= fadeSpeed1;
+        alfa1 -= fadeSpeed1;    //透明にする
         alfa -= fadeSpeed1;
         SetAlpha();
         if (alfa <= 0)
         {
-            fadeImage.enabled = false;
-            stfa.SetActive(false);
-            BGM.Play(2);
+            stfa.SetActive(false);  //暗転を消す
+            BGM.Play(2);    //BGMを流す
             return false;
         }
         return true;
@@ -161,7 +162,7 @@ public class start : MonoBehaviour
 
     public void end()
     {
-        sentaku1[keltuka1].SetActive(false);
+        sentaku1[keltuka1].SetActive(false);　//行動カードを非表示
         sentaku2[keltuka2].SetActive(false);
         sentaku3[keltuka3].SetActive(false);
     }
@@ -178,10 +179,10 @@ public class start : MonoBehaviour
 
     public void gamuovr()
     {
-        StartCoroutine(fadeout());
-        endf = 1;
-        stfa.SetActive(true);
-        day.GetComponentInChildren<TextMeshProUGUI>().text = "-GAME OVER-";
+        StartCoroutine(fadeout());  //フェードアウトの実行、及びフェード中の処理
+        endf = 1;   //終了フラグをたてる
+        stfa.SetActive(true); //暗転の表示
+        day.GetComponentInChildren<TextMeshProUGUI>().text = "-GAME OVER-"; //ゲームオーバーの文字表示
     }
 
 
